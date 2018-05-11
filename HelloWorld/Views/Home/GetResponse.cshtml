@@ -1,0 +1,19 @@
+﻿@model HelloWorld.Models.ResponseViewModel
+@{
+    ViewData["Title"] = "GetResponse";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>GetResponse</h2>
+<div>
+    <h4>ResponseViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Response)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Response)
+        </dd>
+        @Html.DisplayFor(model => model.Age)
+    </dl>
+</div>
