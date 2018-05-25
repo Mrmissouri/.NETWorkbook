@@ -9,17 +9,32 @@ namespace HelloWorld.Controllers
 {
     public class StudentController : Controller
     {
-        public IActionResult Index()
+        private readonly HelloWorldContext _context;
+
+        public StudentController(HelloWorldContext context)
         {
-            return View();
+            _context = context;
         }
 
-        public IActionResult Create()
+        public IActionResult Index()
         {
-            Student model = new Student();
+            var model = _context.students.ToList();
             return View(model);
         }
 
+        [HttpGet]
+        public IActionResult Create()
+        {
+
+            Student model = new Student();
+            return View(model);
+
+            //Create an instance of the DataContext Class
+            //in order to properly connect to our database
+            //HelloWorldContext context = new HelloWorldContext();
+
+
+        }
         [HttpPost]
         public IActionResult Create(Student model)
         {
